@@ -5,11 +5,13 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "noImplicitAny": false,
     "resolveJsonModule": true,
     "strictPropertyInitialization": false,
     "experimentalDecorators": true
-  }
+  },
+  "exclude": ["test"]
 }

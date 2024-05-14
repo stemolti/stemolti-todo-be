@@ -1,5 +1,5 @@
 export class TodoQueryDTO {
-  id: string;
+  id?: string;
   title:string;
   dueDate?: string; // variabile opzionale
   completed: boolean;
