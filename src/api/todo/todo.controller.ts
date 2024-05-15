@@ -9,8 +9,8 @@ const todoService = new TodoService(TodoModel);
 
 export const list = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const includeCompleted = req.query.includeCompleted === 'true';
-        const items = await todoService.list(includeCompleted);
+        const completed = req.query.completed === 'true';
+        const items = await todoService.list(completed);
         const modifiedItems = items.map(item => ({
             id: item.id,
             title: item.title,
@@ -39,13 +39,13 @@ export const createTodo = async (req: Request, res: Response, next: NextFunction
     }
 };
 
-export const markAsChecked = async (req: Request, res: Response, next: NextFunction) => {
+export const checked = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id } = req.params;
         if (!id) {
             throw new NotFoundError();
         }
-        const updated = await todoService.markAsChecked(id);
+        const updated = await todoService.checked(id);
         res.json(updated);
     } catch (err) {
         next(err);
@@ -53,13 +53,13 @@ export const markAsChecked = async (req: Request, res: Response, next: NextFunct
 }
 
 
-export const markAsNotChecked = async (req: Request, res: Response, next: NextFunction) => {
+export const notChecked = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id } = req.params;
         if (!id) {
             throw new NotFoundError();
         }
-        const updated = await todoService.markAsNotChecked(id);
+        const updated = await todoService.notChecked(id);
     } catch (err) {
         next(err);
     }
