@@ -5,13 +5,11 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "Node",
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
-    "resolveJsonModule": true,
+    "resolveJsonModule": true, //Why should I add it?
     "strictPropertyInitialization": false,
     "experimentalDecorators": true
-  },
-  "exclude": ["test"]
+  }
 }

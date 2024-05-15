@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import apiRouter from "./api/routes";
+import { errorHandlers } from "./errors";
 //import { errorHandlers } from './errors';
 
 const app = express();
@@ -13,6 +14,6 @@ app.use(bodyParser.json());
 
 app.use("/api", apiRouter);
 
-//app.use(errorHandlers);
+app.use(errorHandlers);
 
 export default app;
