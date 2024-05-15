@@ -19,7 +19,7 @@ export class TodoService {
       return createdTodo.save();
   }
 
-  async markAsChecked(id: string): Promise<Todo | null> {
+  async checked(id: string): Promise<Todo | null> {
       const updatedTodo = await this.todoModel.findByIdAndUpdate(id, { completed: true }, { new: true }).exec();
       if (!updatedTodo) {
           throw new NotFoundError();
@@ -27,7 +27,7 @@ export class TodoService {
       return updatedTodo;
   }
 
-  async markAsNotChecked(id: string): Promise<Todo | null> {
+  async notChecked(id: string): Promise<Todo | null> {
       const updatedTodo = await this.todoModel.findByIdAndUpdate(id, { completed: false }, { new: true }).exec();
       if (!updatedTodo) {
           throw new NotFoundError();
